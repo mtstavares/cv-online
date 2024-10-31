@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Currículo Online - Matheus Tavares</title>
+    
+    <!--========== BOX ICONS ==========-->
+    <link 
+    rel="stylesheet" 
+    href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="dist/css/style.css" />
+
+     <!--========== HTML2PDF ==========-->
+     <script src="dist/assets/js/html2pdf.bundle.min.js" defer></script>
+
+     <!--========== MAIN JS ==========-->
+     <script src="dist/js/script.js" defer></script>
+  </head>
+  <body>
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+      <nav class="nav bd-container">
+        <a href="#" class="nav__logo">Matheus</a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">
+                <i class="bx bx-home nav__icon"></i>Home</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="#profile" class="nav__link">
+                <i class="bx bx-user nav__icon"></i>Profile</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="#education" class="nav__link">
+                <i class="bx bx-book nav__icon"></i>Education</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="#skills" class="nav__link">
+                <i class="bx bx-receipt nav__icon"></i>Skills</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="#experience" class="nav__link"
+                ><i class="bx bx-briefcase-alt nav__icon"></i>Experience</a
+              >
+            </li>
+            <li class="nav__item">
+              <a href="#certificates" class="nav__link"
+                ><i class="bx bx-award nav__icon"></i>Certificates</a
+              >
+            </li>
+            <li class="nav__item hidden">
+              <a href="#references" class="nav__link"
+                ><i class="bx bx-link-external nav__icon"></i>References</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-grid-alt"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main class="l-main bd-container">
+      <!-- All elements within this div, is generated in PDF -->
+      <div class="resume" id="area-cv">
+        <div class="resume__left">
+          <!--========== HOME ==========-->
+          <section class="home" id="home">
+            <div class="home__container section bd-grid">
+              <div class="home__data bd-grid">
+                <img
+                  src="img/perfil.jpg"
+                  alt="Foto de perfil"
+                  class="home__img"
+                />
+
+                <h1 class="home__title">Matheus <b>Tavares</b></h1>
+                <h3 class="home__profession">Analista de Cibersegurança </h3>
+
+                <!-- Button to download your CV saved in the pdf folder. Available for desktop. -->
+                <div>
+                  <a
+                    download=""
+                    href="dist/assets/pdf/ResumeCv.pdf"
+                    class="home__button-movil"
+                    >Download</a
+                  >
+                </div>
+              </div>
+
+              <div class="home__address bd-grid">
+                <span class="home__information">
+                  <a href="https://maps.app.goo.gl/rx8Eb4dpjbnrqcym9" target="_blank" rel="noopener" class="informationLink"><i class="bx bx-map home__icon "></i> São Paulo - SP</a>
+                </span>
+                <span class="home__information">
+                  <a href="mailto:mts.tavares01@gmail.com" target="_blank" rel="noopener" class="informationLink"><i class="bx bx-envelope home__icon "></i> mts.tavares01@gmail.com</a>
+                </span>
+                <span class="home__information">
+                  <a href="tel:+19996784443" target="_blank" rel="noopener" class="informationLink"><i class="bx bx-phone home__icon "></i> +55 (19) 99678-4443 </a>
+                </span>
+              </div>
+            </div>
+
+            <!-- Theme change button -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="theme-button" class="bi bi-moon change-theme" viewBox="0 0 16 16">
+              <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+            </svg>
+
+
+            <!-- Button to generate and download the pdf. Available for desktop. -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="resume-button" class="bi bi-download generate-pdf" viewBox="0 0 16 16">
+              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+            </svg>
+           
+  
+          </section>
+
+          <!--========== SOCIAL ==========-->
+          <section class="social section">
+            <h2 class="section-title">Social</h2>
+
+            <div class="social__container bd-grid">
+              <a
+                href="https://www.linkedin.com/in/matheus-tavares-ab3153258"
+                target="_blank"
+                class="social__link"
+                rel="noopener"
+              >
+                <i class="bx bxl-linkedin-square social__icon"></i> @mts_tavares
+              </a>
+              <a
+                href="https://github.com/uliwill"
+                target="_blank"
+                class="social__link"
+                rel="noopener"
+              >
+                <i class="bx bxl-github social__icon"></i> @mts_tavares
+              </a>
+            </div>
+          </section>
+
+          <!--========== PROFILE ==========-->
+          <section class="profile section" id="profile">
+            <h2 class="section-title">Profile</h2>
+
+            <p class="profile__description">
+              Estudante de diversas áreas da TI em busca de oportunidades para aprimorar conhecimentos.
+            </p>
+          </section>
+
+          <!--========== EDUCATION ==========-->
+          <section class="education section" id="education">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education__container bd-grid">
+              <div class="education__content">
+                <div class="education__time">
+                  <span class="education__rounder"></span>
+                  <span class="education__line"></span>
+                </div>
+
+                <div class="education__data bd-grid">
+                  <h3 class="education__title">
+                    Técnico em informática
+                  </h3>
+                  <span class="education__studies">ETEC João Belarmino</span>
+                  <span class="education__year">2016 - 2018</span>
+                </div>
+              </div>
+
+              <div class="education__content">
+                <div class="education__time">
+                  <span class="education__rounder"></span>
+                  <span class="education__line"></span>
+                </div>
+
+                <div class="education__data bd-grid">
+                  <h3 class="education__title">Técnólogo em Desenvolvimento Back-End</h3>
+                  <span class="education__studies"
+                    >Faculdade Cruzeiro do Sul</span
+                  >
+                  <span class="education__year">2024 - ...</span>
+                </div>
+              </div>
+
+              <div class="education__content">
+                <div class="education__time">
+                  <span class="education__rounder"></span>
+                  <!-- <span class="education__line"></span> -->
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <!--========== SKILLS  ==========-->
+          <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills__content bd-grid">
+              <ul class="skills__data">
+                <li class="skills__name">
+                  <span class="skills__circle"></span> HTML/CSS
+                </li>
+                <li class="skills__name">
+                  <span class="skills__circle"></span> JavaScript
+                </li>
+                <li class="skills__name">
+                  <span class="skills__circle"></span> ReactJS
+                </li>
+                <li class="skills__name">
+                  <span class="skills__circle"></span> Python
+                </li>
+              </ul>
+
+              <ul class="skills__data">
+                <li class="skills__name">
+                  <span class="skills__circle"></span> MySQL
+                </li>
+
+                <li class="skills__name">
+                  <span class="skills__circle"></span> Redes de Computadores
+                </li>
+                <li class="skills__name">
+                  <span class="skills__circle"></span> Manutenção de Computadores
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <div class="resume__right">
+          <!--========== EXPERIENCE ==========-->
+          <section class="experience section" id="experience">
+            <h2 class="section-title">Experience</h2>
+
+            <div class="experience__container bd-grid">
+              <div class="experience__content">
+                <div class="experience__time">
+                  <span class="experience__rounder"></span>
+                  <span class="experience__line"></span>
+                </div>
+
+                <div class="experience__data bd-grid">
+                  <h3 class="experience__title">Diretoria de técnologia da Polícia Militar</h3>
+                  <span class="experience__company">
+                    05/2024 até o momento 
+                  </span>
+                  <p class="experience__description">
+                    Analista em Cibersegurança.
+                  </p>
+                </div>
+              </div>
+
+              <div class="experience__content">
+                <div class="experience__time">
+                  <span class="experience__rounder"></span>
+                  <span class="experience__line"></span>
+                </div>
+
+                <div class="experience__data bd-grid">
+                  <h3 class="experience__title">23º Batalhão de Polícia Militar</h3>
+                  <span class="experience__company">
+                    05/2023 até 05/2024 
+                  </span>
+                  <p class="experience__description">
+                    Administrador de redes, desenvolvedor web, desenvolvedor de pequenas aplicações, 
+                    instalação/manutenção de computadores e impressoras.
+                  </p>
+                </div>
+              </div>
+
+              <div class="experience__content">
+                <div class="experience__time">
+                  <span class="experience__rounder"></span>
+                   <span class="experience__line"></span> 
+                </div>
+
+                <div class="experience__data bd-grid">
+                  <h3 class="experience__title">23º Batalhão de Policia Militar - 3ª Companhia</h3>
+                  <span class="experience__company">
+                    10/2020 até 05/2023
+                  </span>
+                  <p class="experience__description">
+                    Patrulhamento ostensivo.
+                  </p>
+                </div>
+                
+              </div>
+
+              <div class="experience__content">
+                <div class="experience__time">
+                  <span class="experience__rounder"></span>
+                  <span class="experience__line"></span> 
+                </div>
+
+                <div class="experience__data bd-grid">
+                  <h3 class="experience__title">Ypê</h3>
+                  <span class="experience__company">
+                    09/2019 até 10/2020
+                  </span>
+                  <p class="experience__description">
+                    Operador de traspaleteira e empilhadeira, conferente de carregamento, auxiliar em logistica.
+                  </p>
+                </div>
+              </div>
+
+              <div class="experience__content">
+                <div class="experience__time">
+                  <span class="experience__rounder"></span>
+                  <!-- <span class="experience__line"></span> -->
+                </div>
+
+                <div class="experience__data bd-grid">
+                  <h3 class="experience__title">Hotéis e Restaurantes</h3>
+                  <span class="experience__company">
+                    04/2014 até 09/2020
+                  </span>
+                  <p class="experience__description">
+                    Garçom, barman e meitre em hóteis e restaurantes de Serra Negra.
+                  </p>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+
+          <!--========== CERTIFICATES ==========-->
+          <section class="certificate section" id="certificates">
+            <h2 class="section-title">Certificates</h2>
+
+            <div class="certificate__container bd-grid">
+              <div class="certificate__content">
+                <h3 class="certificate__title">
+                  <a href="dist/assets/certification/ccna-itn.pdf" download="ccna-itn.pdf" class="downloadCertication">Cisco CCNA1 - Introduction to Networks 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-download" viewBox="0 0 16 16">
+                      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                    </svg>
+                  </a> 
+                </h3>
+                <p class="certificate__description">
+                  Configuração de dispositivos e comutadores, protocolos Ethernet, configuração de roteadores,
+                  endereçamento IP, modelo OSI, segurança de Rede, solução de problemas.
+                </p>
+              </div>
+              <div class="certificate__content">
+                <h3 class="certificate__title">
+                  <a href="dist/assets/certification/ccna-srw.pdf" download="ccna-srw.pdf" class="downloadCertication">Cisco CCNA2 - Switching, Routing and Wireless Essentials
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-download" viewBox="0 0 16 16">
+                      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                    </svg>
+                  </a>
+                </h3>
+                <p class="certificate__description">
+                  Configuração e roteamento de VLANs, Redundância em redes comutadas, EtherChannel,
+                  IPV6, configuração de WLANs, segurança de Switch, solução de problemas.
+                </p>
+              </div>
+              <div class="certificate__content">
+                <h3 class="certificate__title">
+                  <a href="dist/assets/certification/itc.pdf" download="itc.pdf" class="downloadCertication">DTIC - Segurança de EndPoint
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-download" viewBox="0 0 16 16">
+                      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                    </svg>
+                  </a>
+                </h3>
+                <p class="certificate__description">
+                  Fundamentos se seguraça, Antivírus e anti-malware, monitoramento e detecção de ameaças,
+                  criptografia de dados, resposta a incidentes.
+                </p>
+              </div>
+              <div class="certificate__content">
+                <h3 class="certificate__title">
+                  <a href="dist/assets/certification/front-end.pdf" download="front-end.pdf" class="downloadCertication">Udemy - Formação Front-end - HTML, CSS, JavaScript, React e +
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  class="bi bi-download" viewBox="0 0 16 16">
+                      <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                      <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                    </svg>
+                  </a> 
+                </h3>
+                <p class="certificate__description">
+                  HTML, CSS, Javascript, Typescript, React
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!--========== REFERENCES ==========-->
+          <section class="references section hidden" id="references">
+            <h2 class="section-title">References</h2>
+
+            <div class="references__container bd-grid">
+              <div class="references__content bd-grid">
+                <span class="references__subtitle">Sr. Director</span>
+                <h3 class="references__title">Mr. Clay Doe</h3>
+                <ul class="references__contact">
+                  <li>Phone: 999-777-666</li>
+                  <li>E-mail: user@email.com</li>
+                </ul>
+              </div>
+
+              <div class="references__content bd-grid">
+                <span class="references__subtitle">Sr. Director</span>
+                <h3 class="references__title">Mr. Clay Doe</h3>
+                <ul class="references__contact">
+                  <li>Phone: 999-777-666</li>
+                  <li>E-mail: user@email.com</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!--========== LANGUAGES ==========-->
+          <section class="languages section hidden">
+            <h2 class="section-title">Languages</h2>
+
+            <div class="languages__container">
+              <ul class="languages__content bd-grid">
+                <li class="languages__name">
+                  <span class="languages__circle"></span> Português
+                </li>
+                <li class="languages__name">
+                  <span class="languages__circle"></span> Inglês Intermediário
+                </li>
+              </ul>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+   
+
+   
+   
+  </body>
+</html>
