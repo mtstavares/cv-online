@@ -14,8 +14,6 @@ const options = {
     }
   };
 
-  
-  
   function generatePDF() {
     const element = document.getElementById('area-cv');
     const optionsContainer = document.querySelector('.options');
@@ -25,20 +23,15 @@ const options = {
 
   
     // Aplica escala para ajuste no PDF
-    element.style.transform = 'scale(0.83)';
+    element.style.transform = 'scale(0.80)';
     element.style.transformOrigin = 'top left';
     element.style.width = '121%';
     element.style.height = 'auto';
     element.style.overflow = 'hidden';
   
     html2pdf()
-        .set(options) // Agora `options` está definido corretamente
-        .from(element)
-        .toPdf()
-        .get('pdf')
-        .then(pdf => {
-        pdf.deletePage(2); // 🔹 Remove a segunda página (se existir)
-    })
+      .set(options) // Agora `options` está definido corretamente
+      .from(element)
       .save()
       .finally(() => {
         // Restaura os estilos e exibe novamente os elementos ocultos

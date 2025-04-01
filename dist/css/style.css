@@ -161,7 +161,6 @@ ul {
 }
 
 .informationLink {
-    color: var(--link-color);
     transition: .3s;
 }
 
@@ -438,9 +437,7 @@ img {
     color: var(--container-color)
 }
 
-.home__address {
-    gap: 1rem
-}
+
 
 .home__information {
     align-items: center;
@@ -613,6 +610,14 @@ img {
     }
 }
 
+@media screen and (max-width:968px) {
+    .bd-container {
+        width: 100%;
+    }
+}
+
+
+
 
 @media screen and (max-width:968px) {
     .nav__menu {
@@ -646,11 +651,6 @@ img {
 @media screen and (min-width:968px) {
     body {
         margin: 3rem 0
-    }
-
-    .bd-container {
-        margin-left: auto;
-        margin-right: auto
     }
 
     .l-header,
