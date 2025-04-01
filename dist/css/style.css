@@ -411,6 +411,19 @@ img {
     border: 2px solid var(--title-color);
 }
 
+.btn-download button{
+    border-radius: 50px;
+    width: 170px;
+    height: 50px;
+    font-weight: 500;
+    border: 1px solid #fafafa;
+}
+
+.btn-download{
+    padding-top: 25px;
+    display: none;
+}
+
 
 .home__title {
     font-size: var(--h1-font-size)
@@ -613,6 +626,14 @@ img {
 @media screen and (max-width:968px) {
     .bd-container {
         width: 100%;
+    }
+
+    .generate-pdf{
+        display: none;
+    }
+
+    .btn-download{
+        display: block;
     }
 }
 
