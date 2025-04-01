@@ -1,169 +1,91 @@
+// Opções do html2pdf (certifique-se de que está antes da função generatePDF)
+const options = {
+    margin: [0, 0, 0, 0],
+    filename: 'curriculo-matheus-tavares.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: {
+      format: 'a4',
+      orientation: 'portrait',
+      unit: 'mm',
+      compressPdf: true,
+      autoRotate: true,
+      putOnlyUsedFonts: true
+    }
+  };
 
-const showMenu = (e, t) => {
-    const n = document.getElementById(e),
-          o = document.getElementById(t);
-    n && o && n.addEventListener("click", () => {
-        o.classList.toggle("show-menu");
-    });
-};
-showMenu("nav-toggle", "nav-menu");
+  
+  
+  function generatePDF() {
+    const element = document.getElementById('area-cv');
+    const optionsContainer = document.querySelector('.options');
+  
+    // Oculta os elementos
+    optionsContainer.style.display = 'none';
 
-const navLink = document.querySelectorAll(".nav__link");
+  
+    // Aplica escala para ajuste no PDF
+    element.style.transform = 'scale(0.83)';
+    element.style.transformOrigin = 'top left';
+    element.style.width = '121%';
+    element.style.height = 'auto';
+    element.style.overflow = 'hidden';
+  
+    html2pdf()
+        .set(options) // Agora `options` está definido corretamente
+        .from(element)
+        .toPdf()
+        .get('pdf')
+        .then(pdf => {
+        pdf.deletePage(2); // 🔹 Remove a segunda página (se existir)
+    })
+      .save()
+      .finally(() => {
+        // Restaura os estilos e exibe novamente os elementos ocultos
+        element.style.transform = '';
+        element.style.transformOrigin = '';
+        element.style.width = '';
+        element.style.height = '';
+        element.style.overflow = '';
+  
+        optionsContainer.style.display = 'flex';
+        
+      });
+  }
+  
+  // Evento no botão
+  document.getElementById('generate-pdf').addEventListener('click', generatePDF);
+  
+  
 
-function linkAction() {
-    document.getElementById("nav-menu").classList.remove("show-menu");
-}
-navLink.forEach(e => e.addEventListener("click", linkAction));
+//   Dark mode
 
-const sections = document.querySelectorAll("section[id]");
+const toggleButton = document.getElementById('dark-mode-toggle');
+const body = document.body;
 
-function scrollActive() {
-    const e = window.pageYOffset;
-    sections.forEach(t => {
-        const n = t.offsetHeight,
-              o = t.offsetTop - 50;
-        sectionId = t.getAttribute("id");
-        e > o && e <= o + n 
-            ? document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.add("active-link") 
-            : document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.remove("active-link");
-    });
-}
-
-function scrollTop() {
-    const e = document.getElementById("scroll-top");
-    this.scrollY >= 200 ? e.classList.add("show-scroll") : e.classList.remove("show-scroll");
-}
-window.addEventListener("scroll", scrollActive);
-window.addEventListener("scroll", scrollTop);
-
-const themeButton = document.getElementById("theme-button"),
-      darkTheme = "dark-theme",
-      iconTheme = "bx-sun",
-      selectedTheme = localStorage.getItem("selected-theme"),
-      selectedIcon = localStorage.getItem("selected-icon"),
-      getCurrentTheme = () => document.body.classList.contains(darkTheme) ? "dark" : "light",
-      getCurrentIcon = () => themeButton.classList.contains("bx-sun") ? "bx-moon" : "bx-sun";
-
-function scaleCv() {
-    document.body.classList.add("scale-cv");
-}
-
-function removeScale() {
-    document.body.classList.remove("scale-cv");
-}
-
-selectedTheme && (
-    document.body.classList["dark" === selectedTheme ? "add" : "remove"](darkTheme),
-    themeButton.classList["bx-moon" === selectedIcon ? "add" : "remove"]("bx-sun")
-);
-
-themeButton.addEventListener("click", () => {
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle("bx-sun");
-    localStorage.setItem("selected-theme", document.body.classList.contains(darkTheme) ? "dark" : "light");
-    localStorage.setItem("selected-icon", themeButton.classList.contains("bx-sun") ? "bx-moon" : "bx-sun");
-});
-
-let areaCv = document.getElementById("area-cv"),
-    resumeButton = document.getElementById("resume-button"),
-    opt = {
-        margin: 0,
-        filename: "myResume.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 4 },
-        jsPDF: { format: "a4", orientation: "portrait" }
-    };
-
-function generateResume() {
-    html2pdf(areaCv, opt);
-}
-resumeButton.addEventListener("click", () => {
-    scaleCv();
-    generateResume();
-    setTimeout(removeScale, 3000);
-});
-=======
-const showMenu = (e, t) => {
-    const n = document.getElementById(e),
-          o = document.getElementById(t);
-    n && o && n.addEventListener("click", () => {
-        o.classList.toggle("show-menu");
-    });
-};
-showMenu("nav-toggle", "nav-menu");
-
-const navLink = document.querySelectorAll(".nav__link");
-
-function linkAction() {
-    document.getElementById("nav-menu").classList.remove("show-menu");
-}
-navLink.forEach(e => e.addEventListener("click", linkAction));
-
-const sections = document.querySelectorAll("section[id]");
-
-function scrollActive() {
-    const e = window.pageYOffset;
-    sections.forEach(t => {
-        const n = t.offsetHeight,
-              o = t.offsetTop - 50;
-        sectionId = t.getAttribute("id");
-        e > o && e <= o + n 
-            ? document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.add("active-link") 
-            : document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.remove("active-link");
-    });
+// Função que atualiza o ícone do botão com base no tema atual
+function updateIcon() {
+  toggleButton.innerHTML = body.classList.contains('dark-mode')
+    ? '<i class="fa-solid fa-sun"></i>' // Sol para modo escuro
+    : '<i class="fa-solid fa-moon"></i>'; // Lua para modo claro
 }
 
-function scrollTop() {
-    const e = document.getElementById("scroll-top");
-    this.scrollY >= 200 ? e.classList.add("show-scroll") : e.classList.remove("show-scroll");
+// Verifica se já existe preferência salva
+if (localStorage.getItem('dark-mode') === 'enabled') {
+  body.classList.add('dark-mode');
 }
-window.addEventListener("scroll", scrollActive);
-window.addEventListener("scroll", scrollTop);
+updateIcon(); // Aplica ícone correto ao carregar
 
-const themeButton = document.getElementById("theme-button"),
-      darkTheme = "dark-theme",
-      iconTheme = "bx-sun",
-      selectedTheme = localStorage.getItem("selected-theme"),
-      selectedIcon = localStorage.getItem("selected-icon"),
-      getCurrentTheme = () => document.body.classList.contains(darkTheme) ? "dark" : "light",
-      getCurrentIcon = () => themeButton.classList.contains("bx-sun") ? "bx-moon" : "bx-sun";
+// Alterna tema e ícone
+toggleButton.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
 
-function scaleCv() {
-    document.body.classList.add("scale-cv");
-}
+  // Salva preferência
+  localStorage.setItem(
+    'dark-mode',
+    body.classList.contains('dark-mode') ? 'enabled' : 'disabled'
+  );
 
-function removeScale() {
-    document.body.classList.remove("scale-cv");
-}
-
-selectedTheme && (
-    document.body.classList["dark" === selectedTheme ? "add" : "remove"](darkTheme),
-    themeButton.classList["bx-moon" === selectedIcon ? "add" : "remove"]("bx-sun")
-);
-
-themeButton.addEventListener("click", () => {
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle("bx-sun");
-    localStorage.setItem("selected-theme", document.body.classList.contains(darkTheme) ? "dark" : "light");
-    localStorage.setItem("selected-icon", themeButton.classList.contains("bx-sun") ? "bx-moon" : "bx-sun");
-});
-
-let areaCv = document.getElementById("area-cv"),
-    resumeButton = document.getElementById("resume-button"),
-    opt = {
-        margin: 0,
-        filename: "myResume.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 4 },
-        jsPDF: { format: "a4", orientation: "portrait" }
-    };
-
-function generateResume() {
-    html2pdf(areaCv, opt);
-}
-resumeButton.addEventListener("click", () => {
-    scaleCv();
-    generateResume();
-    setTimeout(removeScale, 3000);
+  updateIcon(); // Atualiza ícone
 });
 
